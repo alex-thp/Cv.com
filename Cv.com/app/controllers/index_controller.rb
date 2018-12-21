@@ -13,5 +13,6 @@ class IndexController < ApplicationController
   	@presentation = params[:presentation]
   	@experience = params[:experience]
   	@formation = params[:formation]
+  	@email = current_user.email
   end
 end
