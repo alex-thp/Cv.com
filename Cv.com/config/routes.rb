@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   root "index#home"
 
   get '/create_cv', to: "index#cv"
+  post '/cv', to: "index#show"
 end

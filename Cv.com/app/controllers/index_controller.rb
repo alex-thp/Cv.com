@@ -3,8 +3,15 @@ class IndexController < ApplicationController
   end
 
   def cv
-  	def initialize
-  		@
-  	end
+  end
+
+  def show
+  	@name = params[:name]
+  	@title = params[:title]
+  	@telephone = params[:telephone]
+  	@siteweb = params[:siteweb]
+  	@presentation = params[:presentation]
+  	@experience = params[:experience]
+  	@formation = params[:formation]
   end
 end
