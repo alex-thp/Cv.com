@@ -1,0 +1,30 @@
+<% if user_signed_in? %>
+  <%= form_tag "/cv", method: "post" do %>
+    <div class="formulaire_cv">Nom et prénom :</div>
+    <input type="text" name="name" />
+
+    <div class="formulaire_cv">Titre du CV :</div>
+    <input type="text" name="title" />
+
+    <div class="formulaire_cv">Numéro de téléphone :</div>
+    <input type="text" name="telephone" />
+
+    <div class="formulaire_cv">Votre site internet :</div>
+    <input type="text" name="siteweb" />
+
+    <div class="formulaire_cv">Présentez vous en un paragraphe :</div>
+    <input type="text" name="presentation" style="height: 150%" />
+
+    <div class="formulaire_cv">Votre experience :</div>
+    <input type="text" name="experiences" />
+
+    <div class="formulaire_cv">Votre formation :</div>
+    <input type="text" name="formation" />
+
+    <input type="submit" value="Valider les éléments" />
+  <% end %>
+<% else %>
+  <p>Vous devez être connecté pour créer votre CV</p>
+  <%= button_to "Se connecter", new_user_session_path, :class => "Signin" %>
+  <%= button_to "S'inscrire", new_user_registration_path, :class => "Signup" %>
+<% end %>
