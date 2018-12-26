@@ -1,5 +1,6 @@
 <ul>
   <% if user_signed_in? %>
+    <%= button_to "Mon Profil", 'mon_profil', :class => "boutton_profil", :method => :get %>
     <li>
       <%= link_to "Sign Out",destroy_user_session_path, method: :delete %>
     </li>

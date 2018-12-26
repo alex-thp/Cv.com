@@ -25,6 +25,6 @@
   <% end %>
 <% else %>
   <p>Vous devez être connecté pour créer votre CV</p>
-  <%= button_to "Se connecter", new_user_session_path, :class => "Signin" %>
-  <%= button_to "S'inscrire", new_user_registration_path, :class => "Signup" %>
+  <%= button_to "Se connecter", new_user_session_path, :method => "get", :class => "Signin" %>
+  <%= button_to "S'inscrire", new_user_registration_path, :method => "get", :class => "Signup" %>
 <% end %>

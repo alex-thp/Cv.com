@@ -10,29 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_21_154814) do
+ActiveRecord::Schema.define(version: 2018_12_22_190843) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "experiences", force: :cascade do |t|
+  create_table "cvs", force: :cascade do |t|
     t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_cvs_on_user_id"
+  end
+
+  create_table "experiences", force: :cascade do |t|
+    t.bigint "cv_id"
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_experiences_on_user_id"
+    t.index ["cv_id"], name: "index_experiences_on_cv_id"
   end
 
   create_table "formations", force: :cascade do |t|
-    t.bigint "user_id"
+    t.bigint "cv_id"
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_formations_on_user_id"
+    t.index ["cv_id"], name: "index_formations_on_cv_id"
   end
 
   create_table "personnals", force: :cascade do |t|
-    t.bigint "user_id"
+    t.bigint "cv_id"
     t.string "name"
     t.string "title"
     t.string "telephone"
@@ -40,15 +47,15 @@ ActiveRecord::Schema.define(version: 2018_12_21_154814) do
     t.text "presentation"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_personnals_on_user_id"
+    t.index ["cv_id"], name: "index_personnals_on_cv_id"
   end
 
   create_table "skills", force: :cascade do |t|
-    t.bigint "user_id"
+    t.bigint "cv_id"
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_skills_on_user_id"
+    t.index ["cv_id"], name: "index_skills_on_cv_id"
   end
 
   create_table "users", force: :cascade do |t|
