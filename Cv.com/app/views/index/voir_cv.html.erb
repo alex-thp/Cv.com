@@ -1,0 +1,12 @@
+<% @mon_cv = Cv.find_by(id: @cv_id) %>
+<%= @mon_cv.id %>
+<% @forma = Formation.find_by(cv_id: @mon_cv.id) %>
+<% @exp = Experience.find_by(cv_id: @mon_cv.id) %>
+<% @perso = Personnal.find_by(cv_id: @mon_cv.id) %>
+<%= @perso.name %>
+<%= @perso.title %>
+<%= current_user.email %>
+<%= @perso.telephone %>
+<%= @perso.siteweb %>
+<%= @exp.content %>
+<%= @forma.content %>

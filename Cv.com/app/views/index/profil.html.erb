@@ -1,4 +1,4 @@
-<%= @mes_cv.id %>
-<%= @forma %>
-<%= @exp %>
-<%= @perso %>
+<% @mes_cv.each do |l| %>
+<%= l.id %>
+<%= button_to "Voir ce CV", 'voir_cv', :class => "voir_cv", :method => :get, params: { cv_id: l.id } %>
+<% end %>

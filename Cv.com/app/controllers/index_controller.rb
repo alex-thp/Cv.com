@@ -42,9 +42,10 @@ class IndexController < ApplicationController
 
   def profil
     @user = current_user
-    @mes_cv = Cv.first
-    @forma = Formation.find_by(cv_id: "#{@mes_cv.id}")
-    @exp = Experience.find_by(cv_id: "#{@mes_cv.id}")
-    @perso = Personnal.find_by(cv_id: "#{@mes_cv.id}")
+    @mes_cv = Cv.where(user_id: "#{@user.id}").all
   end 
+
+  def voir_cv
+    @cv_id = params[:cv_id]
+  end
 end
